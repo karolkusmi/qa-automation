@@ -13,3 +13,16 @@ test('login with valid credentials', async ({page}) => {
 
 
 })
+
+test('login with empty username', async ({page}) => {
+    await page.goto("https://www.saucedemo.com");
+
+    await page.getByPlaceholder("Username").fill('');
+
+    await page.getByPlaceholder('Password').fill('secret_sauce');
+
+    await page.locator('[data-test="login-button"]').click();
+
+    await expect(page.getByText('Epic sadface: Username is required')).toBeVisible()
+
+})
