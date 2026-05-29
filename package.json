@@ -1,0 +1,23 @@
+{
+  "name": "qa-automation",
+  "version": "1.0.0",
+  "description": "Proyecto de automatización de pruebas con Playwright y TypeScript.",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karolkusmi/qa-automation.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/karolkusmi/qa-automation/issues"
+  },
+  "homepage": "https://github.com/karolkusmi/qa-automation#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^25.9.1"
+  }
+}
