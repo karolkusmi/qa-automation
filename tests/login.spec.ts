@@ -1,5 +1,6 @@
 import {test, expect} from '@playwright/test'
 
+test.describe('Login',() =>{
 test('login with valid credentials', async ({page}) => {
     await page.goto("https://www.saucedemo.com");
  
@@ -54,3 +55,5 @@ test('login with locked user', async({page}) => {
 
 
 })
+})
+
