@@ -8,7 +8,7 @@ export class LoginPage {
 
     constructor(page: Page) {
         this.page = page;
-        this.usernameInput = page.getByPlaceholder("Username");
+        this.usernameInput = page.getByRole("textbox", {name: "Username"});
         this.passwordInput = page.getByPlaceholder("Password");
         this.loginButton = page.locator('[data-test="login-button"]');
     }
