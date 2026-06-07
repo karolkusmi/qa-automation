@@ -20,5 +20,9 @@ test.describe("Inventory", () => {
   test("Verify if the first object contains Sauce Labs Backpack", async ({page}) => {
     const inventoryPage = new InventoryPage(page);
     await expect(inventoryPage.getInventoryItems().nth(0)).toContainText("Sauce Labs Backpack")
+  });
+  test("Verify if it has an item called Backpack in the inventory", async ({page}) => {
+    const inventoryPage = new InventoryPage(page);
+    await expect(inventoryPage.getInventoryItems().filter({hasText: "Backpack"})).toContainText("Backpack")
   })
 });
