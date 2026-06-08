@@ -25,4 +25,8 @@ test.describe("Inventory", () => {
     const inventoryPage = new InventoryPage(page);
     await expect(inventoryPage.getInventoryItems().filter({hasText: "Backpack"})).toContainText("Backpack")
   })
+  test("Verify if after adding an item to the cart the counter number is correct", async ({page}) => {
+    await page.locator('[data-test="add-to-cart-test.allthethings()-t-shirt-(red)"]').click();
+    await expect(page.locator('[data-test=shopping-cart-badge]')).toHaveText("1");
+  })
 });
