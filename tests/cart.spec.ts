@@ -18,4 +18,11 @@ test.describe("Cart", () => {
         await page.locator('[data-test="add-to-cart-sauce-labs-backpack"]').click();
         await expect(cartPage.getCartItems()).toHaveText("1");
  })
+     test("verify if after adding an item to the cart the URL is correct", async ({page}) => {
+        const cartPage = new CartPage(page);
+        await page.locator('[data-test="add-to-cart-sauce-labs-bolt-t-shirt"]').click();
+        await page.locator('[data-test="shopping-cart-link"]').click();
+        await expect(page).toHaveURL("https://www.saucedemo.com/cart.html");
+        
+     })
 })
