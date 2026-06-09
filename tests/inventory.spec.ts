@@ -29,4 +29,9 @@ test.describe("Inventory", () => {
     await page.locator('[data-test="add-to-cart-test.allthethings()-t-shirt-(red)"]').click();
     await expect(page.locator('[data-test=shopping-cart-badge]')).toHaveText("1");
   })
+  test("Verify if the first product from Z to A is correct", async({page}) => {
+    const inventoryPage = new InventoryPage(page);
+    await inventoryPage.sortBy("za");
+    await expect(inventoryPage.getInventoryItems().nth(0)).toContainText("Test.allTheThings() T-Shirt (Red)")
+  })
 });

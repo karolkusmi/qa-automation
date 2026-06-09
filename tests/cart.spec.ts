@@ -25,7 +25,7 @@ test.describe("Cart", () => {
         await expect(page).toHaveURL("https://www.saucedemo.com/cart.html");
         
      })
-     test("Verify if the item we select is the same in  the cart", async({page}) => {
+     test("Verify if the item we select is the same in the cart", async({page}) => {
       const cartPage = new CartPage(page);
       await page.locator('[data-test="add-to-cart-sauce-labs-bolt-t-shirt"]').click();
       await page.goto("https://www.saucedemo.com/cart.html");
