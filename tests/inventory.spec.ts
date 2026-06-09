@@ -34,4 +34,9 @@ test.describe("Inventory", () => {
     await inventoryPage.sortBy("za");
     await expect(inventoryPage.getInventoryItems().nth(0)).toContainText("Test.allTheThings() T-Shirt (Red)")
   })
+  test("Verify if the first product is the lowest price after sorting from low to high", async({page}) => {
+    const inventoryPage = new InventoryPage(page);
+    await inventoryPage.sortBy("lohi");
+    await expect(inventoryPage.getInventoryItems().nth(0)).toContainText("Sauce Labs Onesie")
+  })
 });
