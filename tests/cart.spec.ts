@@ -31,4 +31,11 @@ test.describe("Cart", () => {
       await page.goto("https://www.saucedemo.com/cart.html");
       await expect(cartPage.getCartTitle()).toHaveText("Sauce Labs Bolt T-Shirt");
      })
+     test("Verify if the counter becomes invisible after removing an item from the cart", async({page}) => {
+      const cartPage = new CartPage(page);
+      await page.locator('[data-test="add-to-cart-sauce-labs-bolt-t-shirt"]').click();
+      await page.goto("https://www.saucedemo.com/cart.html");
+      await page.locator('[data-test="remove-sauce-labs-bolt-t-shirt"]').click();
+      await expect(cartPage.getCartItems()).toBeHidden();
+     })
 })
