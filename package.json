@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Proyecto de automatización de pruebas con Playwright y TypeScript.",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test:bdd": "cucumber-js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/karolkusmi/qa-automation.git"
@@ -18,6 +20,11 @@
   "homepage": "https://github.com/karolkusmi/qa-automation#readme",
   "devDependencies": {
     "@playwright/test": "^1.60.0",
-    "@types/node": "^25.9.1"
+    "@types/node": "^25.9.1",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.22.4"
+  },
+  "dependencies": {
+    "@cucumber/cucumber": "^13.0.0"
   }
 }

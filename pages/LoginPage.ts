@@ -22,4 +22,14 @@ export class LoginPage {
 
         
     }
+
+    async goToLoginPage() {
+        await this.page.goto("https://www.saucedemo.com")
+    }
+
+    async fillCredentials(username: string, password: string) {
+        await this.usernameInput.fill(username);
+        await this.passwordInput.fill(password);
+        await this.loginButton.click();
+    }
 }
