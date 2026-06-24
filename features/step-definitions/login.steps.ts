@@ -35,3 +35,11 @@ Then('I should see an error message', async() => {
     await expect(page.getByText("Epic sadface: Username is required")).toBeVisible();
 })
 
+When('I login with blocked credentials', async() => {
+    await loginPage.fillCredentials("locked_out_user","secret_sauce")
+})
+
+
+Then('I should see a locked message', async() => {
+    await expect(page.getByText("Epic sadface: Sorry, this user has been locked out.")).toBeVisible();
+})

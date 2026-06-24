@@ -1,10 +1,13 @@
 {
   "default": {
+    "timeout": 30000,
     "paths": ["features/**/*.feature"],
     "require": ["features/step-definitions/**/*.ts"],
     "requireModule": ["tsx/cjs"],
     "formatOptions": {
       "snippetInterface": "async-await"
+
     }
+
   }
 }

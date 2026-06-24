@@ -9,4 +9,8 @@ Feature: Login
         Given I am on the login page
         When I enter an empty username
         Then I should see an error message      
-        
+
+    Scenario: Login with blocked user
+        Given I am on the login page
+        When I login with blocked credentials
+        Then I should see a locked message
