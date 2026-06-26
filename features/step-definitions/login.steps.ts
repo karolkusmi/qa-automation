@@ -1,23 +1,9 @@
-import { Given, When, Then, Before, After } from "@cucumber/cucumber";
-import { Browser, Page, chromium,} from "playwright";
-import { LoginPage } from "../../pages/LoginPage";
+import { Given, When, Then } from "@cucumber/cucumber";
+import { page, loginPage } from "./hooks";
+
 import {  expect } from "@playwright/test";
 
-let page: Page;
-let browser: Browser;
-let loginPage: LoginPage;
-
-Before(async () => {
-  browser = await chromium.launch();
-  page = await browser.newPage();
-});
-
-After(async () => {
-  await browser.close();
-});
-
 Given("I am on the login page", async () => {
-  loginPage = new LoginPage(page);
   await loginPage.goToLoginPage();
 });
 
