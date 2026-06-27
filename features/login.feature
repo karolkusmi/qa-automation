@@ -1,16 +1,16 @@
 Feature: Login
 
-    Scenario: Login with valid credentials 
+    Scenario: Log in with valid credentials 
         Given I am on the login page
-        When I login with valid credentials
+        When I log in with valid credentials
         Then I should see the inventory page
 
-    Scenario: Login with empty username
+    Scenario: Log in with empty username
         Given I am on the login page
         When I enter an empty username
         Then I should see an error message      
 
-    Scenario: Login with blocked user
+    Scenario: Log in with blocked user
         Given I am on the login page
-        When I login with blocked credentials
-        Then I should see a locked message
+        When I log in with blocked credentials
+        Then I should see a locked-out message 

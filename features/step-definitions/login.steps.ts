@@ -7,7 +7,7 @@ Given("I am on the login page", async () => {
   await loginPage.goToLoginPage();
 });
 
-When("I login with valid credentials", async () => {
+When("I log in with valid credentials", async () => {
   await loginPage.fillCredentials("standard_user", "secret_sauce");
 });
 
@@ -21,11 +21,11 @@ Then('I should see an error message', async() => {
     await expect(page.getByText("Epic sadface: Username is required")).toBeVisible();
 })
 
-When('I login with blocked credentials', async() => {
+When('I log in with blocked credentials', async() => {
     await loginPage.fillCredentials("locked_out_user","secret_sauce")
 })
 
 
-Then('I should see a locked message', async() => {
+Then('I should see a locked-out message', async() => {
     await expect(page.getByText("Epic sadface: Sorry, this user has been locked out.")).toBeVisible();
 })
