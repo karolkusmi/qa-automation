@@ -2,15 +2,14 @@ Feature: Login
 
     Scenario: Log in with valid credentials 
         Given I am on the login page
-        When I log in with valid credentials
-        Then I should see the inventory page
+        When I log in with "<username>" and "<password>"
+        Then I should see "<result>"
 
-    Scenario: Log in with empty username
-        Given I am on the login page
-        When I enter an empty username
-        Then I should see an error message      
+    Examples:
 
-    Scenario: Log in with blocked user
-        Given I am on the login page
-        When I log in with blocked credentials
-        Then I should see a locked-out message 
+    | username        | password     | result
+    | standard_user   | secret_sauce | inventory page
+    |                 | secret_sauce | error message
+    | locked_out_user | secret_sauce | locked_out message
+
+ 

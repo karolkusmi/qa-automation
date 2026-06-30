@@ -2,13 +2,13 @@ Feature: Cart
 
     Scenario: Adding a product to the cart
     Given I am on the login page
-    And I log in with valid credentials
+    And I log in with "standard_user" and "secret_sauce"
     When I add a product to the cart
     Then I should see one product in the cart 
 
     Scenario: Removing an item from the cart
     Given I am on the login page
-    And I log in with valid credentials 
+    And I log in with "standard_user" and "secret_sauce" 
     And I add a product to the cart
     And I go to the cart page 
     When I remove the item
@@ -16,6 +16,6 @@ Feature: Cart
 
     Scenario: Adding three items to the cart
     Given I am on the login page
-    And I log in with valid credentials
+    And I log in with "standard_user" and "secret_sauce"
     When I add three items to the cart
     Then I should see three items in the cart 

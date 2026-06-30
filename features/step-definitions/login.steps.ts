@@ -1,31 +1,29 @@
 import { Given, When, Then } from "@cucumber/cucumber";
 import { page, loginPage } from "./hooks";
 
-import {  expect } from "@playwright/test";
+import { expect } from "@playwright/test";
 
 Given("I am on the login page", async () => {
   await loginPage.goToLoginPage();
 });
 
-When("I log in with valid credentials", async () => {
-  await loginPage.fillCredentials("standard_user", "secret_sauce");
-});
+When(
+  "I log in with {string} and {string}",
+  async (username: string, password: string) => {
+    await loginPage.fillCredentials(username, password);
+  },
+);
 
-Then('I should see the inventory page', async() => {
+Then("I should see {string}", async (result: string) => {
+  if (result === "inventory page") {
     await expect(page).toHaveURL("https://www.saucedemo.com/inventory.html");
-})
-When('I enter an empty username', async() => {
-    await loginPage.fillCredentials("", "secret_sauce");
-})
-Then('I should see an error message', async() => {
-    await expect(page.getByText("Epic sadface: Username is required")).toBeVisible();
-})
-
-When('I log in with blocked credentials', async() => {
-    await loginPage.fillCredentials("locked_out_user","secret_sauce")
-})
-
-
-Then('I should see a locked-out message', async() => {
-    await expect(page.getByText("Epic sadface: Sorry, this user has been locked out.")).toBeVisible();
-})
+  } else if (result === "error message") {
+    await expect(
+      page.getByText("Epic sadface: Username is required"),
+    ).toBeVisible();
+  } else if (result === "locked_out message") {
+    await expect(
+      page.getByText("Epic sadface: Sorry, this user has been locked out."),
+    ).toBeVisible();
+  }
+});
